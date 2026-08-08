@@ -105,8 +105,15 @@ const navItems = [
   ["Projects", "#projects"],
   ["Education", "#education"],
   ["Contact", "#contact"],
+  [<a href={resumePdf}
+                download="Abhay_Bisht_Resume.pdf"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
+              >
+                <Download className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Resume</span>
+                <span className="sm:hidden">CV</span>
+              </a>],
 ] as const;
-
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -124,16 +131,8 @@ function Portfolio() {
                 </a>
               </li>
             ))}
+
           </ul>
-          <a
-            href={resumePdf}
-            download="Abhay_Bisht_Resume.pdf"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
-          >
-            <Download className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Résumé</span>
-            <span className="sm:hidden">CV</span>
-          </a>
         </nav>
       </header>
 
@@ -176,8 +175,8 @@ function Portfolio() {
                   download="Abhay_Bisht_Resume.pdf"
                   className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 font-mono text-xs font-semibold text-primary transition-colors hover:bg-primary/20 sm:text-sm"
                 >
-                  <Download className="h-4 w-4" /> Download Résumé
-                </a>
+                  <Download className="h-4 w-4" /> Download Resume
+                </a>  
               </div>
               <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
@@ -393,7 +392,7 @@ function Portfolio() {
               download="Abhay_Bisht_Resume.pdf"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:text-sm"
             >
-              <Download className="h-4 w-4" /> Download my résumé (PDF)
+              <Download className="h-4 w-4" /> Download my resume
             </a>
           </div>
         </section>
