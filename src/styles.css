@@ -98,7 +98,8 @@
 
   --font-mono-brand: "JetBrains Mono", ui-monospace, monospace;
   --font-sans-brand: "Work Sans", ui-sans-serif, system-ui, sans-serif;
-  --gradient-hero: radial-gradient(
+  --gradient-hero:
+    radial-gradient(
       120% 100% at 85% 0%,
       color-mix(in oklab, var(--primary) 22%, transparent),
       transparent 60%
@@ -142,7 +143,8 @@
 }
 
 @utility grid-surface {
-  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
 }
@@ -180,4 +182,3 @@
   font-size: 0.75rem;
   padding: 0.3rem 0.7rem;
 }
-
