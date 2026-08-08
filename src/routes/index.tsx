@@ -105,21 +105,27 @@ const navItems = [
   ["Projects", "#projects"],
   ["Education", "#education"],
   ["Contact", "#contact"],
-  [<a href={resumePdf}
-                download="Abhay_Bisht_Resume.pdf"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
-              >
-                <Download className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Resume</span>
-                <span className="sm:hidden">CV</span>
-              </a>],
+  [
+    <a
+      href={resumePdf}
+      download="Abhay_Bisht_Resume.pdf"
+      className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
+    >
+      <Download className="h-3.5 w-3.5" />
+      <span className="hidden sm:inline">Resume</span>
+      <span className="sm:hidden">CV</span>
+    </a>,
+  ],
 ] as const;
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur">
         <nav className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
-          <a href="#top" className="min-w-0 font-mono text-sm font-bold tracking-tight sm:text-base">
+          <a
+            href="#top"
+            className="min-w-0 font-mono text-sm font-bold tracking-tight sm:text-base"
+          >
             <span className="text-gradient">abhay</span>
             <span className="text-muted-foreground">.bisht</span>
           </a>
@@ -131,7 +137,6 @@ function Portfolio() {
                 </a>
               </li>
             ))}
-
           </ul>
         </nav>
       </header>
@@ -176,7 +181,7 @@ function Portfolio() {
                   className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 font-mono text-xs font-semibold text-primary transition-colors hover:bg-primary/20 sm:text-sm"
                 >
                   <Download className="h-4 w-4" /> Download Resume
-                </a>  
+                </a>
               </div>
               <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
@@ -186,7 +191,9 @@ function Portfolio() {
                   ["10+", "Networking Labs"],
                 ].map(([value, label]) => (
                   <div key={label} className="min-w-0">
-                    <dt className="font-mono text-xl font-bold text-primary sm:text-2xl">{value}</dt>
+                    <dt className="font-mono text-xl font-bold text-primary sm:text-2xl">
+                      {value}
+                    </dt>
                     <dd className="truncate text-xs text-muted-foreground">{label}</dd>
                   </div>
                 ))}
@@ -194,7 +201,10 @@ function Portfolio() {
             </div>
 
             <div className="relative mx-auto w-full max-w-xs md:max-w-sm">
-              <div className="absolute -inset-3 rounded-[2rem] bg-primary/15 blur-2xl" aria-hidden="true" />
+              <div
+                className="absolute -inset-3 rounded-[2rem] bg-primary/15 blur-2xl"
+                aria-hidden="true"
+              />
               <img
                 src={abhayPhoto}
                 alt="Portrait of Abhay Bisht"
@@ -213,8 +223,8 @@ function Portfolio() {
               switches, chasing down connectivity issues, then automating or documenting what I
               learned. My internship and role as an XML Programmer sharpened my precision with
               schemas, validation and deadlines, while side projects keep my React and Node skills
-              current. I&apos;m now looking for an entry-level Network / Technical Support role where
-              I can troubleshoot real infrastructure every day.
+              current. I&apos;m now looking for an entry-level Network / Technical Support role
+              where I can troubleshoot real infrastructure every day.
             </p>
             <ul className="card-elevated space-y-4 p-6 font-mono text-xs">
               <li className="flex items-center gap-3">
@@ -318,7 +328,11 @@ function Portfolio() {
         </Section>
 
         {/* EDUCATION + CERTS */}
-        <Section id="education" icon={<GraduationCap className="h-4 w-4" />} title="Education & Certifications">
+        <Section
+          id="education"
+          icon={<GraduationCap className="h-4 w-4" />}
+          title="Education & Certifications"
+        >
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-6">
               {education.map((e) => (
@@ -366,8 +380,16 @@ function Portfolio() {
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                { icon: <Mail className="h-4 w-4" />, label: "abhaysinghalm333@gmail.com", href: "mailto:abhaysinghalm333@gmail.com" },
-                { icon: <Phone className="h-4 w-4" />, label: "+91-8882315761", href: "tel:+918882315761" },
+                {
+                  icon: <Mail className="h-4 w-4" />,
+                  label: "abhaysinghalm333@gmail.com",
+                  href: "mailto:abhaysinghalm333@gmail.com",
+                },
+                {
+                  icon: <Phone className="h-4 w-4" />,
+                  label: "+91-8882315761",
+                  href: "tel:+918882315761",
+                },
                 {
                   icon: <Linkedin className="h-4 w-4" />,
                   label: "LinkedIn profile",
