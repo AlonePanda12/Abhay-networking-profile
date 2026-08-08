@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import abhayPhoto from "@/assets/abhay.jpg";
 import resumePdf from "@/assets/AbhayBisht.pdf";
@@ -14,6 +15,7 @@ import {
   Server,
   ArrowUpRight,
   Download,
+  Menu,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -105,20 +107,15 @@ const navItems = [
   ["Projects", "#projects"],
   ["Education", "#education"],
   ["Contact", "#contact"],
-  [<a href={resumePdf}
-                download="Abhay_Bisht_Resume.pdf"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
-              >
-                <Download className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Resume</span>
-                <span className="sm:hidden">CV</span>
-              </a>],
 ] as const;
+
 function Portfolio() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur">
-        <nav className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6">
+        <nav className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-4 px-4 py-3 sm:px-6">
           <a href="#top" className="min-w-0 font-mono text-sm font-bold tracking-tight sm:text-base">
             <span className="text-gradient">abhay</span>
             <span className="text-muted-foreground">.bisht</span>
@@ -131,9 +128,52 @@ function Portfolio() {
                 </a>
               </li>
             ))}
-
           </ul>
+          <a
+            href={resumePdf}
+            download="Abhay_Bisht_Resume.pdf"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 font-mono text-xs text-primary transition-colors hover:bg-primary/20"
+          >
+            <Download className="h-3.5 w-3.5" />
+            <span className="hidden sm:inline">Resume</span>
+            <span className="sm:hidden">CV</span>
+          </a>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border text-foreground transition-colors hover:border-primary/50 hover:text-primary md:hidden"
+          >
+            <Menu className="h-4 w-4" />
+          </button>
         </nav>
+        {menuOpen && (
+          <ul className="flex flex-col gap-1 border-t border-border/70 bg-background/95 px-4 py-3 font-mono text-sm md:hidden">
+            {navItems.map(([label, href]) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className="block rounded-lg px-2 py-2.5 text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <a
+                href={resumePdf}
+                download="Abhay_Bisht_Resume.pdf"
+                onClick={() => setMenuOpen(false)}
+                className="mt-1 flex items-center gap-2 rounded-lg px-2 py-2.5 text-primary transition-colors hover:bg-primary/10"
+              >
+                <Download className="h-4 w-4" />
+                Resume
+              </a>
+            </li>
+          </ul>
+        )}
       </header>
 
       <main id="top">
@@ -176,7 +216,7 @@ function Portfolio() {
                   className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2.5 font-mono text-xs font-semibold text-primary transition-colors hover:bg-primary/20 sm:text-sm"
                 >
                   <Download className="h-4 w-4" /> Download Resume
-                </a>  
+                </a>
               </div>
               <dl className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
                 {[
@@ -343,7 +383,7 @@ function Portfolio() {
                 ))}
               </ul>
               <h3 className="mt-8 font-mono text-sm font-semibold text-primary">
-                Beyond the résumé
+                Beyond the Resume
               </h3>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
                 <li>Google Developer Student Club — active member &amp; community projects</li>
@@ -392,7 +432,7 @@ function Portfolio() {
               download="Abhay_Bisht_Resume.pdf"
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5 sm:text-sm"
             >
-              <Download className="h-4 w-4" /> Download my resume
+              <Download className="h-4 w-4" /> Download my Resume (PDF)
             </a>
           </div>
         </section>
